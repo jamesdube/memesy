@@ -94,7 +94,7 @@ export default {
 			}
 			const data = { Name: this.form.meme, TopText: this.form.top };
 	  		//let that = this
-	  		fetch('http://127.0.0.1:3000/memes/create',{
+	  		fetch(BE,{
 	  			method: "POST",
 	  			headers: {
 	  				'Content-Type': 'application/json',
