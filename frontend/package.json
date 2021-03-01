@@ -1,0 +1,21 @@
+{
+  "name": "frontend",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "autoprefixer": "^9",
+    "postcss": "^7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "vue": "^3.0.4"
+  },
+  "devDependencies": {
+    "@bundled-es-modules/axios": "^0.21.1",
+    "@vue/compiler-sfc": "^3.0.4",
+    "dotenv": "^8.2.0",
+    "path": "^0.12.7",
+    "vite": "^1.0.0-rc.13"
+  }
+}
