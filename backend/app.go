@@ -25,9 +25,9 @@ func main() {
 	app.Use(cors.New())
 
 	app.Get("/memes",getMemes)
-	app.Post("/memes/create",createMemes)
+	app.Post("/memes",createMemes)
 
-	err := app.Listen(":3000")
+	err := app.Listen(":3120")
 
 	log.Fatalf("error: %s", err)
 }
