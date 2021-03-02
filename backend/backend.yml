@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: memesy-backend
+  namespace: default
+  labels:
+    app: memesy-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: memesy-backend
+  template:
+    metadata:
+      labels:
+        app: memesy-backend
+    spec:
+      containers:
+      - name: memesy-backend
+        image: jdube/memesy-backend
+        ports:
+        - containerPort: 3120
