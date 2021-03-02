@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: memesy-frontend
+  namespace: default
+  labels:
+    app: memesy-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: memesy-frontend
+  template:
+    metadata:
+      labels:
+        app: memesy-frontend
+    spec:
+      # Add your init container here            
+      initContainers:
+      - name: init-c
+        image: jdube/init-c
+        args: ['http', '-u', "http://memesy-backend"]
+      containers:
+      - name: memesy-frontend
+        image: jdube/memesy-frontend
+        ports:
+        - containerPort: 80
