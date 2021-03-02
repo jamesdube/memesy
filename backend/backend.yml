@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: memesy-backend
-  namespace: default
+  namespace: memesy
   labels:
     app: memesy-backend
 spec:
