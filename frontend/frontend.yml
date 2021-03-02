@@ -1,9 +1,14 @@
 ---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: memesy
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: memesy-frontend
-  namespace: default
+  namespace: memesy
   labels:
     app: memesy-frontend
 spec:
@@ -20,9 +25,12 @@ spec:
       initContainers:
       - name: init-c
         image: jdube/init-c
-        args: ['http', '-u', "http://memesy-backend"]
+        args: ['http', '-u', "http://memesy-backend/memes"]
       containers:
       - name: memesy-frontend
         image: jdube/memesy-frontend
         ports:
         - containerPort: 80
+        env:
+        - name: VITE_MEMESY_BACKEND
+          value: http://memesy-backend/memes

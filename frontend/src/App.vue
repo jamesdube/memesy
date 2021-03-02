@@ -76,6 +76,7 @@ export default {
 	},
 	created: function () {
 	    // `this` points to the vm instance
+	    console.log('configured backend is : ',BE)
 	    this.getMemes()
 	},
 	methods:{
@@ -85,8 +86,11 @@ export default {
 			.then(data => {
 				console.log(data)
 				this.memes = data.data
-			}
-			);
+			})
+			.catch((error) => {
+	  			this.working = false
+	  			console.error('Error getting memes:', error);
+	  		});
 		},
 		createMeme(){
 			if(!this.working){
