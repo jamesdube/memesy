@@ -75,7 +75,6 @@ export default {
 		}
 	},
 	created: function () {
-	    // `this` points to the vm instance
 	    console.log('configured backend is : ',BE)
 	    this.getMemes()
 	},
@@ -97,7 +96,6 @@ export default {
 				this.working = true
 			}
 			const data = { Name: this.form.meme, TopText: this.form.top };
-	  		//let that = this
 	  		fetch(BE,{
 	  			method: "POST",
 	  			headers: {
